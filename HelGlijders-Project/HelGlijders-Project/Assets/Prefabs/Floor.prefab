@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 2010200490540065304}
   - component: {fileID: 2010200490540065311}
   m_Layer: 0
-  m_Name: CenterZone
-  m_TagString: Untagged
+  m_Name: ZoneTrigger
+  m_TagString: ZoneTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,8 +132,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010200490540065309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 25}
-  m_LocalScale: {x: 20, y: 4, z: 50}
+  m_LocalPosition: {x: 0, y: 12, z: 25}
+  m_LocalScale: {x: 30, y: 25, z: 55}
   m_Children: []
   m_Father: {fileID: 2010200490862687730}
   m_RootOrder: 2

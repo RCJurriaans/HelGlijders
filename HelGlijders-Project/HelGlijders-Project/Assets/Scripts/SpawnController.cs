@@ -9,15 +9,20 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private Transform Geometry;
     [SerializeField] private Transform SpawnPosition;
 
+    private List<GameObject> obstacles;
+
     void Start()
     {
         transform.localRotation = Quaternion.AngleAxis(45 + Random.value*-10f, Vector3.right);
 
-        for (int i = 0; i < 2; i++)
+        obstacles = new List<GameObject>();
+
+        for(int i=0; i<3; i++)
         {
-            Vector3 randomPosition = RandomPointInBox(Geometry.GetComponent<BoxCollider>().bounds);
-            Instantiate(ObstaclePrefab, randomPosition, transform.rotation);
+            GameObject newObstacle = Instantiate(ObstaclePrefab, getRandomPosition(), Geometry.rotation);
+            obstacles.Add(newObstacle);
         }
+
     }
 
     public void SpawnNextFloor()
@@ -27,17 +32,15 @@ public class SpawnController : MonoBehaviour
 
     public void Destroy()
     {
+        foreach(GameObject obstacle in obstacles)
+        {
+            Destroy(obstacle);
+        }
         Destroy(gameObject);
     }
-
-    private Vector3 RandomPointInBox(Bounds bounds)
+    Vector3 getRandomPosition()
     {
-        return new Vector3(
-            Random.Range(bounds.min.x, bounds.max.x),
-            Random.Range(bounds.min.y, bounds.max.y),
-            Random.Range(bounds.min.z, bounds.max.z)
-        );
+        Vector3 randomPoint = Geometry.TransformPoint(new Vector3(Random.Range(-0.5f, 0.5f), 1f, Random.Range(-0.5f, 0.5f)));
+        return randomPoint;
     }
-
-
 }

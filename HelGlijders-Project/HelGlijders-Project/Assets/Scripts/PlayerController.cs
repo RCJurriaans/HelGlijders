@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float movementSpeed = 2000f;
     private float maxHorizontalVelocity = 10f;
+    private Transform currentZone;
 
     void Start()
     {
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
         {
             SpawnController spawnController = other.gameObject.GetComponentInParent<SpawnController>();
             spawnController.SpawnNextFloor();
+        } else if (other.gameObject.tag == "ZoneTrigger")
+        {
+            currentZone = other.gameObject.transform;
+            Debug.Log("zone change");
         }
     }
 
@@ -39,6 +44,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "DespawnTrigger")
         {
             other.gameObject.GetComponentInParent<SpawnController>().Destroy();
+        }
+        if (other.gameObject.transform == currentZone)
+        {
+            Debug.Log("GAME OVER");
         }
     }
 }
