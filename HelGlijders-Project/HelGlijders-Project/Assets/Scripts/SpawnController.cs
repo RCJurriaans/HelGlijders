@@ -17,4 +17,8 @@ public class SpawnController : MonoBehaviour
         Instantiate(FloorPrefab, SpawnPosition.position, new Quaternion(0f,0f,0f,0f));
     }
 
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

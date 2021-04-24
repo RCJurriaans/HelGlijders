@@ -33,4 +33,12 @@ public class PlayerController : MonoBehaviour
             spawnController.SpawnNextFloor();
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "DespawnTrigger")
+        {
+            other.gameObject.GetComponentInParent<SpawnController>().Destroy();
+        }
+    }
 }
