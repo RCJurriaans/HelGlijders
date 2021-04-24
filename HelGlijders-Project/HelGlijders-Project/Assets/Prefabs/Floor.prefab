@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2010200490862687730}
   - component: {fileID: 4446415587643205556}
   m_Layer: 0
-  m_Name: FloorObject
+  m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloorPrefab: {fileID: 2010200490862687729}
+  ObstaclePrefab: {fileID: 3816619594623438262, guid: 59f4b0af23fa5ed4e9c07ed12a9f612f,
+    type: 3}
+  Geometry: {fileID: 2010200491085445230}
   SpawnPosition: {fileID: 2010200490390958863}
 --- !u!1 &2010200491085445229
 GameObject:
