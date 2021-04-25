@@ -13,7 +13,7 @@ public class SpawnController : MonoBehaviour
 
     void Start()
     {
-        transform.localRotation = Quaternion.AngleAxis(45 + Random.value*-10f, Vector3.right);
+        transform.localRotation = Quaternion.AngleAxis(60 + Random.value*-10f, Vector3.right);
 
         obstacles = new List<GameObject>();
 
@@ -23,7 +23,7 @@ public class SpawnController : MonoBehaviour
             obstacles.Add(newObstacle);
         }
 
-    }
+    }   
 
     public void SpawnNextFloor()
     {
