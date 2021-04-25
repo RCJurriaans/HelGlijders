@@ -13,7 +13,8 @@ public class SpawnController : MonoBehaviour
 
     void Start()
     {
-        transform.localRotation = Quaternion.AngleAxis(60 + Random.value*-10f, Vector3.right);
+        Quaternion spawnRotation = new Quaternion(0.5f - Random.value*0.15f, 0.05f - Random.value*0.1f, 0f, 1f);
+        transform.localRotation = spawnRotation;
 
         obstacles = new List<GameObject>();
 

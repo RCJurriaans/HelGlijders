@@ -15,5 +15,6 @@ public class CameraController : MonoBehaviour
         Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref refVelocity, smoothSpeed);
         
         transform.position = smoothedPosition;
+        transform.LookAt(target);
     }
 }
