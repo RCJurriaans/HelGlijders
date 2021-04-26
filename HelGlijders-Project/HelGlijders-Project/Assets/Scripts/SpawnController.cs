@@ -6,6 +6,7 @@ public class SpawnController : MonoBehaviour
 {
     public GameObject FloorPrefab;
     public GameObject[] ObstaclePrefabs;
+    public GameObject Rock;
     [SerializeField] private Transform Geometry;
     [SerializeField] private Transform SpawnPosition;
 
@@ -20,9 +21,10 @@ public class SpawnController : MonoBehaviour
 
         obstacles = new List<GameObject>();
 
-        for(int i=0; i<6; i++)
+        for(int i=0; i<5; i++)
         {
-            obstacles.Add(SpawnRandom());
+            obstacles.Add(SpawnRandomObstacle());
+            obstacles.Add(SpawnRandomRock());
         }
 
     }   
@@ -34,23 +36,32 @@ public class SpawnController : MonoBehaviour
 
     public void Destroy()
     {
-        foreach(GameObject obstacle in obstacles)
+        Invoke("DeleteObjects", 5f);
+    }
+
+    private void DeleteObjects()
+    {
+        foreach (GameObject obstacle in obstacles)
         {
             Destroy(obstacle);
         }
         Destroy(gameObject);
     }
-    Vector3 getRandomPosition()
-    {
-        Vector3 randomPoint = Geometry.TransformPoint(new Vector3(Random.Range(-0.5f, 0.5f), 0.5f, Random.Range(-0.5f, 0.5f)));
-        return randomPoint;
-    }
 
-    GameObject SpawnRandom()
+    GameObject SpawnRandomObstacle()
     {
         randomInt = Random.Range(0, ObstaclePrefabs.Length);
-        GameObject randomObstacle = Instantiate(ObstaclePrefabs[randomInt], getRandomPosition(), Geometry.rotation * new Quaternion(0f, Random.value * 1f, 0f, 1f));
+        Vector3 randomPoint = Geometry.TransformPoint(new Vector3(Random.Range(-0.5f, 0.5f), 0.5f, Random.Range(-0.5f, 0.5f)));
+        GameObject randomObstacle = Instantiate(ObstaclePrefabs[randomInt], randomPoint, Geometry.rotation * new Quaternion(0f, Random.value * 1f, 0f, 1f));
         randomObstacle.transform.localScale = new Vector3(1.25f -Random.value*.5f, 1.25f-Random.value*.5f, 1.25f-Random.value*.5f);
         return randomObstacle;
+    }
+    GameObject SpawnRandomRock()
+    {
+        Vector3 randomPoint = Geometry.TransformPoint(new Vector3(Random.Range(-0.5f, 0.5f), 30f+Random.value*15f, Random.Range(-0.5f, 0.5f)));
+        GameObject randomRock = Instantiate(Rock, randomPoint, Geometry.rotation * new Quaternion(0f, Random.value * 1f, 0f, 1f));
+        float randomScale = 1.25f - Random.value * .5f;
+        randomRock.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+        return randomRock;
     }
 }

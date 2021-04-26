@@ -210,6 +210,7 @@ MonoBehaviour:
   ObstaclePrefabs:
   - {fileID: 8743486599446914774, guid: 150c51a510d60224a8f989cd11ad4b23, type: 3}
   - {fileID: 9132302956235983880, guid: 70e431459a5b3934aa86251b22489711, type: 3}
+  Rock: {fileID: 3915449762414949924, guid: b3f12a6ab862ee041be1e8139c9414cd, type: 3}
   Geometry: {fileID: 2010200491085445230}
   SpawnPosition: {fileID: 2010200490390958863}
 --- !u!1 &2010200491085445229
