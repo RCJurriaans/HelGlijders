@@ -207,8 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloorPrefab: {fileID: 2010200490862687729}
-  ObstaclePrefab: {fileID: 3816619594623438262, guid: 59f4b0af23fa5ed4e9c07ed12a9f612f,
-    type: 3}
+  ObstaclePrefabs:
+  - {fileID: 8743486599446914774, guid: 150c51a510d60224a8f989cd11ad4b23, type: 3}
+  - {fileID: 9132302956235983880, guid: 70e431459a5b3934aa86251b22489711, type: 3}
   Geometry: {fileID: 2010200491085445230}
   SpawnPosition: {fileID: 2010200490390958863}
 --- !u!1 &2010200491085445229
@@ -270,7 +271,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5eb9737ae7cb9d4a8f84326dbce844d, type: 2}
+  - {fileID: 2100000, guid: 376e4d0239f580f41a2c8576cccdb0c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
